@@ -16,45 +16,68 @@ import org.jointheleague.graphical.robot.Robot;
 public class RobotTreasureHunt implements KeyEventDispatcher{
 
 	// 1. Create a new mini robot (type "mini" inside the parentheses)
-	
+	Robot hi = new Robot("mini");
 	private void goUp() throws InterruptedException {
 		// 2. Make the robot move up the screen (use setAngle(angle) and microMove(distance))
+		hi.setAngle(0);
+		hi.microMove(3);
+		
 		
 	}
 
 	private void goDown() throws InterruptedException{
 		// 3. make the robot move down the screen (use setAngle(angle) and microMove(distance))
-		
+		hi.setAngle(180);
+		hi.microMove(3);
 	}
 
 	private void turnLeft() throws InterruptedException{
 		// 4. Make the robot turn to the left (use setAngle(angle) and microMove(distance))
-
+hi.setAngle(270);
+hi.microMove(3);
 	}
 
 	private void turnRight() throws InterruptedException{
 		// 5. make the robot turn to the right (use setAngle(angle) and microMove(distance))
-		
+		hi.setAngle(90);
+		hi.microMove(3);
 	}
 
 	private void spaceBarWasPressed() {
 
 		// 5. Change ROBOTNAME below to match the name of the robot you created in step 1.  THEN, remove the slashes at the beginning of the next two lines
-		//int robotXLocation = ROBOTNAME.getX();
-		//int robotYLocation = ROBOTNAME.getY();
+		int robotXLocation = hi.getX();
+		int robotYLocation = hi.getY();
 		
 		// 6. Print the robotXLocation and robotYLocation variables to the console 
-		
+		System.out.println(robotXLocation);
+		System.out.println(robotYLocation);
 		// 7. If robot is at same location as the little girl
-		//      --make a pop-up tell the robot where to go next
+		if(robotYLocation == 429 && robotXLocation == 723) {
 		
 		// 8. Give the user subsequent clues at different locations on the image
-		// (pirate robot, swamp, parrots, etc.)
+		JOptionPane.showMessageDialog(null, "Go to the boy.");
 		
-		// 9.  If the robot is in the final location
+		
+		}else {
+			
+		}
+			// 9.  If the robot is in the final location
+		if(robotXLocation == 207 && robotYLocation == 426) {
+		
+		JOptionPane.showMessageDialog(null, "Go to the skull.");
+		}
+		if(robotXLocation == 249 && robotYLocation == 120) {
+			JOptionPane.showMessageDialog(null, "Go to the house");
+		}
+		if(robotXLocation ==720 && robotYLocation == 300) {
+			treasureFound();
+			
+		}
+		}
 		//     --call the treasureFound() method
 		
-	}
+	
 
 	private void go() {
 		KeyboardFocusManager.getCurrentKeyboardFocusManager().addKeyEventDispatcher(this);
